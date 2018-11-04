@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+	<html>
+	<head>
+		<title>CubStart Server Demo!</title>
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+		<link rel="stylesheet" href="main.css" />
+	</head>
+	<body>
+		<body background="https://images-na.ssl-images-amazon.com/images/I/61rlQBcOy4L._SX466_.jpg" alt="sample"style="width:100%">
+		<div class = "background">
+	<div class = "title"> <h1>Welcome to your Terranium. How was your day?</h1></div>
+		<div id="main">
+			<button id="add" onClick="onClickAdd()">Lets get some MEAT</button>
+			<button id="subtract"onClick="onClickSubtract()">"Kale"</button>
+			<br/>
+			<p id="number"></p>
+		</div>
+		<div id="logs">
+			<div id="requests">
+				<div id="requests-title">
+					Requests:
+				</div>
+				<div id="requests-content">
+				</div>
+			</div>
+			<div id="responses">
+				<div id="responses-title">
+					Responses:
+				</div>
+				<div id="responses-content">
+				</div>
+			</div>
+		</div>
+		<script>
+
+			function onClickAdd() {
+				fetch("/add", {method: "post"})
+				.then (function(response) {
+					turnbrown()
+				})
+			}
+			function onClickSubtract() {
+				fetch("/subtract", {method: "post"})
+				.then (function(response) {
+					turnbrown()
+				})
+			}
+
+			function turnbrown() {
+				fetch("/turnbrown")
+				.then(function(response) {
+					response.text().then(
+						function(body) {
+							console.log(body)
+							console.log(document.body)
+							if(body=="Poop"){
+								document.body.style.backgroundImage="url(http://www.africanfarming.net/images/stories/DyingTrees.e.jpg)"
+							}
+							if(body=="Green"){
+								document.body.style.backgroundImage="url(https://upload.wikimedia.org/wikipedia/en/thumb/7/7e/Patrick_Star.png/220px-Patrick_Star.png)"
+
+							}
+							;
+						}
+					)
+				})
+			}
+
+			console.log("Yay")
+		</script>
+		<script src="main.js"></script>
+	</body>
+</html>
