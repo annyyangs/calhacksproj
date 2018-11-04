@@ -24,3 +24,21 @@
     text-align: center;
     color: white;
 }
+
+@font-face {
+  font-family: 'Avenir Next';
+  src: url("http://www.yoursite.com/fonts/Avenir_Book.otf"); /* File to be stored at your site */
+  }
+
+
+h1 {
+    opacity: 1.0;
+    font-style:normal;
+    color: white;
+    font-family: 'Avenir Next';
+    text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
+}
+
+.buttontext {
+    opacity: 1.0;
+}
